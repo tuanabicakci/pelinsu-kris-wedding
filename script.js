@@ -16,8 +16,44 @@ function updateCountdown() {
     const seconds = Math.floor((distance / 1000) % 60);
 
     document.getElementById("timer").innerText =
-        `${days}days ${hours}hours ${minutes}minutes ${seconds}seconds`;
+        `${days} days ${hours} hours ${minutes} minutes ${seconds} seconds`;
 }
 
 updateCountdown(); // Initial call
 const interval = setInterval(updateCountdown, 1000); // Update every second
+
+const leftPolaroid = document.querySelector('.polaroid-left');
+const rightPolaroid = document.querySelector('.polaroid-right');
+const scheduleItems = document.querySelectorAll('.schedule-item');
+let revealedItems = new Set(); // to prevent repeated animations
+
+
+const handleScroll = () => {
+    const triggerPoint = window.innerHeight * 0.8;
+
+    [leftPolaroid, rightPolaroid].forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < triggerPoint) {
+            if (el.classList.contains('polaroid-left')) {
+                el.classList.add('animate-left');
+            } else if (el.classList.contains('polaroid-right')) {
+                el.classList.add('animate-right');
+            }
+        }
+    });
+
+    scheduleItems.forEach((item, index) => {
+        const rect = item.getBoundingClientRect();
+        const triggerPoint = window.innerHeight * 0.85;
+
+        if (rect.top < triggerPoint && !revealedItems.has(item)) {
+            revealedItems.add(item);
+            setTimeout(() => {
+                item.classList.add('visible');
+            }, index * 200); // stagger effect
+        }
+    });
+};
+
+window.addEventListener('scroll', handleScroll);
+window.addEventListener('load', handleScroll);

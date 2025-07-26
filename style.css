@@ -11,6 +11,7 @@ h2{
     font-weight: 400;
     font-style: normal;
     font-size: 4rem;
+    text-align: center;
 }
 
 h3{
@@ -48,7 +49,7 @@ section>div{
     overflow: hidden;
     z-index: 1;
     color: #ffffff;
-    padding-bottom: 8rem;
+    padding-bottom: 6rem;
 
 
 }
@@ -60,7 +61,7 @@ section>div{
     right: 0;
     bottom: 0;
     background: #000000;
-    background: linear-gradient(180deg,rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.5) 100%);
+    background: linear-gradient(180deg,rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.8) 100%);
     z-index: -1; /* places it behind the content */
 }
 
@@ -72,13 +73,13 @@ section>div{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 .hero-title>span{
     font-family: "Great Vibes", cursive;
     font-weight: 400;
     font-style: normal;
-    font-size:6rem;
+    font-size:7rem;
 }
 
 .hero-info{
@@ -86,7 +87,8 @@ section>div{
     align-items: center;
     justify-content: center;
     gap:1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
+    font-size:1.2rem
 }
 .vl {
     border-left: 2px solid #ffffff;
@@ -97,11 +99,13 @@ section>div{
 }
 #our-story{
     background: #f6f4f0;
+    overflow: hidden;
 }
+
 .section-content{
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    gap:1rem;
+    gap:3rem;
     align-items: center;
     height: 100%;
     padding: 5rem 2rem;
@@ -114,8 +118,10 @@ section>div{
     align-items: center;
     text-align: center;
     width: 100%;
+    font-size: 1.2rem;
 
 }
+
 
 .polaroid {
     opacity: 0;
@@ -202,9 +208,9 @@ section>div{
     width: 100%;
 }
 
-#schedule .section-content>div{
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
+.schedule-grid{
+    display: grid!important;
+    grid-template-columns: repeat(3,1fr)!important;
     gap: 3rem;
     height: 100%;
 }
@@ -226,20 +232,15 @@ section>div{
 
 /*-----------------*/
 /*RSVP SECTION */
-.rsvp{
+#rsvp{
     position: relative;
     z-index: 1;
     background: url("./images/rsvp.jpg") no-repeat center center/cover;
     color: #f6f4f0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
 
 }
 
-.rsvp::before {
+#rsvp::before {
     content: "";
     position: absolute;
     top: 0;
@@ -251,6 +252,24 @@ section>div{
     z-index: -1; /* places it behind the content */
 }
 
+#rsvp-info{
+    flex-direction: column;
+}
+
+.rsvp-button{
+    text-decoration: none;
+    background: #63979f;
+    color: #ffffff;
+    padding: 0.5rem;
+    border-radius: 10px;
+    transition: transform 1s ease;
+
+}
+
+.rsvp-button:hover{
+    background: #7aa6ad;
+    transition: transform 1s ease;
+}
 
 .loader {
     margin:auto;
@@ -299,11 +318,35 @@ section>div{
     text-align: center;
     font-size: 1.2rem;
     color: #fff;
-
-    padding: 0.5rem;
     border-radius:5px ;
 }
 .time {
     font-weight: bold;
 }
 
+@media (max-width: 1024px) {
+    section{
+        height: auto;
+    }
+    section>div{
+        max-width: 600px;
+    }
+    .section-content{
+       display: flex;
+         flex-direction: column;
+        gap: 2rem;
+    }
+    #schedule{
+        background-size: contain;
+    }
+    .schedule-grid{
+        display: flex!important;
+    flex-direction: column!important;
+    }
+    .schedule-item{
+        height: 500px;
+        width: 100%;
+        background-position: top center;
+    }
+
+}

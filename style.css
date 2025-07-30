@@ -259,7 +259,7 @@ section > div {
 #rsvp {
     position: relative;
     z-index: 1;
-    background: url("./images/rsvp.jpg") no-repeat center center/cover;
+    background: url("images/rsvp-hero.JPG") no-repeat center center/cover;
     color: #f6f4f0;
 
 }

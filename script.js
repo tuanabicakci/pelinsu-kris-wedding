@@ -1,9 +1,3 @@
-const password = prompt("Enter password:");
-if (password !== "pelinsukris") {
-    alert("Incorrect password");
-    window.location.href = "https://pelinsuandkriswedding.com/"; // redirect or close page
-}
-
 const targetDate = new Date("September 6, 2025 00:00:00").getTime();
 
 function updateCountdown() {

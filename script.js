@@ -4,7 +4,6 @@ const rightPolaroid = document.querySelector('.polaroid-right');
 const fadeItems = document.querySelectorAll('.fade');
 let revealedItems = new Set(); // to prevent repeated animations
 
-
 const handleScroll = () => {
     const triggerPoint = window.innerHeight * 0.8;
 
